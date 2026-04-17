@@ -110,7 +110,7 @@ GITHUB_TOKEN=TU_TOKEN_AQUI
 OPENAI_BASE_URL=https://models.inference.ai.azure.com
 ```
 
-⚠️ **Importante:**
+ **Importante:**
 - Cada usuario debe usar su propio token de GitHub  
 - No subir este archivo al repositorio  
 
