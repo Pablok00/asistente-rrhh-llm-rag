@@ -1,210 +1,177 @@
-# Asistente Inteligente para Consultas Internas de Recursos Humanos usando LLM y RAG
+# Asistente Inteligente de RRHH con LLM y RAG
 
-## Descripción del proyecto
-Este proyecto corresponde al desarrollo de un prototipo académico orientado a responder consultas frecuentes del área de recursos humanos mediante el uso de inteligencia artificial.
+## Descripción
+Este proyecto corresponde a un prototipo académico que utiliza inteligencia artificial para responder consultas frecuentes del área de recursos humanos.
 
-La solución fue diseñada para una empresa ficticia llamada **Comercial Andina SpA**, la cual presenta una problemática común en muchas organizaciones: el área de recursos humanos recibe consultas repetitivas sobre vacaciones, permisos administrativos, licencias médicas, beneficios y normativas internas, lo que genera carga operativa y tiempos de respuesta variables.
+Fue desarrollado para una empresa ficticia llamada **Comercial Andina SpA**, donde el área de RRHH recibe muchas preguntas repetitivas sobre vacaciones, permisos, licencias médicas y beneficios.
 
-Para abordar este problema, se desarrolló un asistente inteligente que combina un modelo de lenguaje (LLM) con un sistema de Recuperación Aumentada de Información (RAG). Esto permite que las respuestas no dependan solo del conocimiento general del modelo, sino también de documentos internos y externos cargados en el sistema.
+La solución combina un modelo de lenguaje (LLM) con un sistema de Recuperación Aumentada de Información (RAG), lo que permite responder preguntas basándose en documentos y no solo en conocimiento general.
 
-## Objetivo del proyecto
-Diseñar un prototipo capaz de responder consultas internas de recursos humanos de forma clara, rápida y contextualizada, utilizando información proveniente de documentos de la empresa y de fuentes externas relacionadas con la normativa laboral.
+---
+
+## Objetivo
+Diseñar un asistente capaz de responder consultas internas de forma clara, rápida y basada en información documentada.
+
+---
 
 ## ¿Qué hace el sistema?
-El sistema permite que un usuario escriba preguntas en lenguaje natural (por ejemplo, sobre vacaciones, permisos, licencias médicas o beneficios internos). Luego, el programa:
-1. Busca información relevante en los documentos cargados.
-2. Recupera el contexto más útil.
-3. Genera una respuesta apoyada específicamente en esa información.
+El sistema permite hacer preguntas en lenguaje natural y realiza lo siguiente:
 
-De esta manera, el prototipo busca mejorar el acceso a la información, reducir la dependencia del área de recursos humanos y entregar respuestas más consistentes.
+1. Busca información relevante en documentos  
+2. Recupera el contexto más útil  
+3. Genera una respuesta basada en esos datos  
 
 ---
 
 ## Tecnologías utilizadas
-* Python
-* LangChain
-* FAISS
-* GitHub Models
-* Embeddings
-* Archivos de texto (`.txt`) como base documental
-* Visual Studio Code
-* Git y GitHub
+- Python  
+- LangChain  
+- FAISS  
+- GitHub Models  
+- Visual Studio Code  
+- Git y GitHub  
 
 ---
 
 ## Estructura del proyecto
-* `data/internos/`: Contiene documentos internos simulados del área de recursos humanos.
-* `data/externos/`: Contiene documentos externos de apoyo normativo.
-* `src/`: Contiene los archivos de lógica del sistema.
-* `evidencias/`: Carpeta destinada a capturas y pruebas del prototipo.
-* `app.py`: Archivo principal para ejecutar el asistente.
-* `requirements.txt`: Lista de dependencias del proyecto.
-* `.env`: Archivo de configuración local para credenciales (no se sube al repositorio).
-* `.gitignore`: Archivo que evita subir información sensible o innecesaria.
-* `README.md`: Documentación general del proyecto.
-
----
-
-## Documentos utilizados
-El sistema trabaja con documentos internos y externos, los cuales fueron elaborados con fines académicos y simulados de acuerdo con un contexto organizacional realista.
-
-**Documentos internos:**
-* Reglamento interno
-* Política de vacaciones
-* Instructivo de permisos administrativos
-* Manual de beneficios
-* Procedimiento de licencias médicas
-
-**Documentos externos:**
-* Resumen académico del Código del Trabajo
-* Información de apoyo de la Dirección del Trabajo
-* Referencia general de normativa laboral
+- `data/internos/`: documentos internos  
+- `data/externos/`: documentos externos  
+- `src/`: lógica del sistema  
+- `evidencias/`: capturas de pruebas  
+- `app.py`: archivo principal  
+- `requirements.txt`: dependencias  
 
 ---
 
 ## Requisitos previos
-* **Python** instalado en el equipo.
-* **Visual Studio Code** (o un editor de código similar).
-* **Git** instalado.
-* Un **token personal de GitHub** con permisos habilitados para el uso de modelos.
+Antes de comenzar, debes tener instalado:
+
+- Python  
+- Visual Studio Code  
+- Git  
 
 ---
 
-## Instalación del proyecto
+## Instalación paso a paso
 
-1. **Clonar el repositorio:** Clona o descarga este repositorio en tu equipo.  
-2. **Abrir el editor:** Abre la carpeta del proyecto en Visual Studio Code.  
-3. **Crear un entorno virtual:** Abre la terminal integrada y ejecuta el siguiente comando:
+### 1. Crear carpeta y abrir en VS Code
+Primero crea una carpeta en tu computador y ábrela en Visual Studio Code.
 
+---
+
+### 2. Clonar el repositorio
+```bash
+git clone https://github.com/Pablok00/asistente-rrhh-llm-rag.git
+```
+
+---
+
+### 3. Entrar al proyecto
+```bash
+cd asistente-rrhh-llm-rag
+```
+
+---
+
+### 4. Crear entorno virtual
 ```bash
 python -m venv venv
 ```
 
-### 4. Activar el entorno virtual
+---
 
-En Windows:
+### 5. Activar entorno virtual
 
+**En Windows:**
 ```bash
 venv\Scripts\activate
 ```
 
-En macOS o Linux:
-
+**En Mac/Linux:**
 ```bash
 source venv/bin/activate
 ```
 
-### 5. Instalar dependencias
+---
 
-Con el entorno virtual activado, ejecuta:
-
+### 6. Instalar dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
+---
+
 ## Configuración del archivo `.env`
 
-Para que el sistema funcione, es necesario crear un archivo llamado `.env` en la raíz del proyecto. Este archivo no debe subirse al repositorio, ya que contiene información sensible.
-
-Dentro del archivo `.env`, debe escribirse lo siguiente:
+Crear un archivo llamado `.env` en la raíz del proyecto con el siguiente contenido:
 
 ```env
 GITHUB_TOKEN=TU_TOKEN_AQUI
 OPENAI_BASE_URL=https://models.inference.ai.azure.com
 ```
 
-### Importante sobre el token
-
-La persona que ejecute el proyecto debe usar su propio token personal de GitHub.
-
-Ese token debe tener permiso para modelos. En GitHub puede aparecer como:
-
-- `Models`
-- `Models: Read`
-- `models`
-- `models:read`
-
-Esto puede variar según el idioma de la cuenta o el tipo de token creado, pero la idea es que tenga permiso de lectura para usar modelos.
-
-No se debe reutilizar ni publicar el token de otra persona. Cada usuario debe crear y configurar el suyo de forma local.
+⚠️ **Importante:**
+- Cada usuario debe usar su propio token de GitHub  
+- No subir este archivo al repositorio  
 
 ---
 
-## ¿Cómo funciona el sistema?
+## Ejecución del sistema
 
-El funcionamiento general del prototipo es el siguiente:
-
-1. El usuario realiza una consulta en lenguaje natural.
-2. El sistema busca fragmentos relevantes dentro de los documentos previamente cargados.
-3. Se recupera el contexto más útil para responder a la consulta.
-4. El modelo de lenguaje genera una respuesta basada exclusivamente en ese contexto.
-5. La respuesta se entrega al usuario en la pantalla de la consola.
-
----
-
-## Ejecución del proyecto
-
-### 1. Creación de la base vectorial
-
-Antes de ejecutar el asistente por primera vez, o si se modifican los documentos base, es necesario crear la base vectorial. Ejecuta el siguiente comando en la terminal:
+### 1. Crear base vectorial
+Este paso es obligatorio antes de usar el sistema:
 
 ```bash
 python src\crear_vectores.py
 ```
 
-Si todo está correcto, el sistema mostrará mensajes indicando que los documentos fueron cargados y que la base vectorial fue creada exitosamente.
+---
 
-### 2. Ejecución del asistente
-
-Una vez creada la base vectorial, puedes iniciar el asistente interactivo con este comando:
-
+### 2. Ejecutar asistente
 ```bash
 python app.py
 ```
 
-Al iniciar, el programa solicitará que el usuario ingrese una consulta.
+---
+
+## Ejemplos de preguntas
+
+Puedes probar con:
+
+- ¿Cuántos días de vacaciones tengo?  
+- ¿Cómo se solicita un permiso?  
+- ¿Qué hago con una licencia médica?  
+- ¿Qué beneficios tiene la empresa?  
 
 ---
 
-## Ejemplos de uso
+## ¿Cómo funciona?
 
-Puedes probar el asistente con preguntas como las siguientes:
+El sistema sigue este flujo:
 
-- ¿Cuántos días de vacaciones me corresponden?
-- ¿Cómo se solicita un permiso administrativo?
-- ¿Qué debo hacer si tengo una licencia médica?
-- ¿Qué beneficios internos entrega la empresa?
-- ¿Dónde puedo hacer consultas sobre vacaciones o permisos?
-
----
-
-## Archivos principales del sistema
-
-### `src/cargar_documentos.py`
-
-Permite leer los documentos de texto desde las carpetas internas y externas.
-
-### `src/crear_vectores.py`
-
-Carga los documentos, los divide en fragmentos, genera embeddings y crea la base vectorial.
-
-### `src/rag_pipeline.py`
-
-Contiene la lógica principal del sistema RAG. Recupera contexto y genera respuestas con el modelo.
-
-### `app.py`
-
-Permite ejecutar el asistente desde consola y realizar preguntas.
-
+1. Usuario hace una pregunta  
+2. Se buscan documentos relacionados  
+3. Se recupera el contexto  
+4. El modelo genera la respuesta  
+5. Se muestra al usuario  
 
 ---
 
-## Uso ético de inteligencia artificial
+## Archivos importantes
 
-Este proyecto fue desarrollado con apoyo de inteligencia artificial para mejorar redacción, organización de ideas y orientación técnica general. El análisis del caso, la definición de requerimientos, el diseño de la solución, la arquitectura y la validación del contenido fueron realizados y revisados por el equipo.
+- `crear_vectores.py`: genera la base vectorial  
+- `rag_pipeline.py`: lógica del sistema RAG  
+- `app.py`: ejecución del asistente  
+
+---
+
+## Uso de IA
+
+Se utilizó inteligencia artificial como apoyo en redacción y organización.  
+El diseño, lógica y desarrollo fueron realizados por el equipo.
 
 ---
 
 ## Autoría
 
-Proyecto académico desarrollado para la asignatura **Ingeniería de Soluciones con Inteligencia Artificial**.
+Proyecto académico de la asignatura **Ingeniería de Soluciones con IA**
