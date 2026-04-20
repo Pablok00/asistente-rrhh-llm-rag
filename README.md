@@ -1,29 +1,29 @@
-# Asistente Inteligente de RRHH con LLM y RAG
+﻿# Asistente Inteligente de RRHH con LLM y RAG
 
-## Descripción
-Este proyecto corresponde a un prototipo académico que utiliza inteligencia artificial para responder consultas frecuentes del área de recursos humanos.
+## DescripciÃ³n
+Este proyecto corresponde a un prototipo acadÃ©mico que utiliza inteligencia artificial para responder consultas frecuentes del Ã¡rea de recursos humanos.
 
-Fue desarrollado para una empresa ficticia llamada **Comercial Andina SpA**, donde el área de RRHH recibe muchas preguntas repetitivas sobre vacaciones, permisos, licencias médicas y beneficios.
+Fue desarrollado para una empresa ficticia llamada **Comercial Andina SpA**, donde el Ã¡rea de RRHH recibe muchas preguntas repetitivas sobre vacaciones, permisos, licencias mÃ©dicas y beneficios.
 
-La solución combina un modelo de lenguaje (LLM) con un sistema de Recuperación Aumentada de Información (RAG), lo que permite responder preguntas basándose en documentos y no solo en conocimiento general.
+La soluciÃ³n combina un modelo de lenguaje (LLM) con un sistema de RecuperaciÃ³n Aumentada de InformaciÃ³n (RAG), lo que permite responder preguntas basÃ¡ndose en documentos y no solo en conocimiento general.
 
 ---
 
 ## Objetivo
-Diseñar un asistente capaz de responder consultas internas de forma clara, rápida y basada en información documentada.
+DiseÃ±ar un asistente capaz de responder consultas internas de forma clara, rÃ¡pida y basada en informaciÃ³n documentada.
 
 ---
 
-## ¿Qué hace el sistema?
+## Â¿QuÃ© hace el sistema?
 El sistema permite hacer preguntas en lenguaje natural y realiza lo siguiente:
 
-1. Busca información relevante en documentos  
-2. Recupera el contexto más útil  
+1. Busca informaciÃ³n relevante en documentos  
+2. Recupera el contexto mÃ¡s Ãºtil  
 3. Genera una respuesta basada en esos datos  
 
 ---
 
-## Tecnologías utilizadas
+## TecnologÃ­as utilizadas
 - Python  
 - LangChain  
 - FAISS  
@@ -36,7 +36,7 @@ El sistema permite hacer preguntas en lenguaje natural y realiza lo siguiente:
 ## Estructura del proyecto
 - `data/internos/`: documentos internos  
 - `data/externos/`: documentos externos  
-- `src/`: lógica del sistema  
+- `src/`: lÃ³gica del sistema  
 - `evidencias/`: capturas de pruebas  
 - `app.py`: archivo principal  
 - `requirements.txt`: dependencias  
@@ -52,10 +52,10 @@ Antes de comenzar, debes tener instalado:
 
 ---
 
-## Instalación paso a paso
+## InstalaciÃ³n paso a paso
 
 ### 1. Crear carpeta y abrir en VS Code
-Primero crea una carpeta en tu computador y ábrela en Visual Studio Code.
+Primero crea una carpeta en tu computador y Ã¡brela en Visual Studio Code.
 
 ---
 
@@ -78,7 +78,7 @@ Para comprobarlo en Windows, puedes usar:
 dir
 ```
 
-Deberías ver archivos como `app.py`, `README.md` y `requirements.txt`.
+DeberÃ­as ver archivos como `app.py`, `README.md` y `requirements.txt`.
 
 ---
 
@@ -103,11 +103,12 @@ source venv/bin/activate
 
 Si en Windows aparece un error como:
 
+### 6. Instalar dependencias
 ```bash
-No se puede cargar el archivo porque la ejecución de scripts está deshabilitada en este sistema
+No se puede cargar el archivo porque la ejecuciÃ³n de scripts estÃ¡ deshabilitada en este sistema
 ```
 
-Debes habilitar la ejecución de scripts de PowerShell:
+Debes habilitar la ejecuciÃ³n de scripts de PowerShell:
 
 1. Abrir PowerShell como administrador  
 2. Ejecutar el siguiente comando:
@@ -124,7 +125,7 @@ Set-ExecutionPolicy RemoteSigned
 .\venv\Scripts\Activate.ps1
 ```
 
-Cuando el entorno virtual esté activo, la terminal debería mostrar algo parecido a `(venv)` al inicio de la línea.
+Cuando el entorno virtual estÃ© activo, la terminal deberÃ­a mostrar algo parecido a `(venv)` al inicio de la lÃ­nea.
 
 ---
 
@@ -133,9 +134,9 @@ Cuando el entorno virtual esté activo, la terminal debería mostrar algo pareci
 python -m pip install -r requirements.txt
 ```
 
-Si aparece un error indicando que no encuentra `requirements.txt`, normalmente significa que la terminal no está ubicada dentro de la carpeta del proyecto.
+Si aparece un error indicando que no encuentra `requirements.txt`, normalmente significa que la terminal no estÃ¡ ubicada dentro de la carpeta del proyecto.
 
-Primero verifica la ubicación:
+Primero verifica la ubicaciÃ³n:
 
 ```bash
 dir
@@ -153,7 +154,7 @@ Luego intenta otra vez:
 python -m pip install -r requirements.txt
 ```
 
-También puedes instalar usando la ruta completa del archivo. En ese caso, copia la ruta real donde descargaste el proyecto y úsala entre comillas:
+TambiÃ©n puedes instalar usando la ruta completa del archivo. En ese caso, copia la ruta real donde descargaste el proyecto y Ãºsala entre comillas:
 
 ```bash
 python -m pip install -r "C:\Users\TU_USUARIO\Desktop\asistente-rrhh-llm-rag\requirements.txt"
@@ -161,9 +162,9 @@ python -m pip install -r "C:\Users\TU_USUARIO\Desktop\asistente-rrhh-llm-rag\req
 
 ---
 
-## Configuración del archivo `.env`
+## ConfiguraciÃ³n del archivo `.env`
 
-Crear un archivo llamado `.env` en la raíz del proyecto con el siguiente contenido:
+Crear un archivo llamado `.env` en la raÃ­z del proyecto con el siguiente contenido:
 
 ```env
 GITHUB_TOKEN=TU_TOKEN_AQUI
@@ -176,7 +177,7 @@ OPENAI_BASE_URL=https://models.inference.ai.azure.com
 
 ---
 
-## Ejecución del sistema
+## EjecuciÃ³n del sistema
 
 ### 1. Crear base vectorial
 Este paso es obligatorio antes de usar el sistema:
@@ -198,14 +199,14 @@ python app.py
 
 Puedes probar con:
 
-- ¿Cuántos días de vacaciones tengo?  
-- ¿Cómo se solicita un permiso?  
-- ¿Qué hago con una licencia médica?  
-- ¿Qué beneficios tiene la empresa?  
+- Â¿CuÃ¡ntos dÃ­as de vacaciones tengo?  
+- Â¿CÃ³mo se solicita un permiso?  
+- Â¿QuÃ© hago con una licencia mÃ©dica?  
+- Â¿QuÃ© beneficios tiene la empresa?  
 
 ---
 
-## ¿Cómo funciona?
+## Â¿CÃ³mo funciona?
 
 El sistema sigue este flujo:
 
@@ -220,18 +221,18 @@ El sistema sigue este flujo:
 ## Archivos importantes
 
 - `crear_vectores.py`: genera la base vectorial  
-- `rag_pipeline.py`: lógica del sistema RAG  
-- `app.py`: ejecución del asistente  
+- `rag_pipeline.py`: lÃ³gica del sistema RAG  
+- `app.py`: ejecuciÃ³n del asistente  
 
 ---
 
 ## Uso de IA
 
-Se utilizó inteligencia artificial como apoyo en redacción y organización.  
-El diseño, lógica y desarrollo fueron realizados por el equipo.
+Se utilizÃ³ inteligencia artificial como apoyo en redacciÃ³n y organizaciÃ³n.  
+El diseÃ±o, lÃ³gica y desarrollo fueron realizados por el equipo.
 
 ---
 
-## Autoría
+## AutorÃ­a
 
-Proyecto académico de la asignatura **Ingeniería de Soluciones con IA**
+Proyecto acadÃ©mico de la asignatura **IngenierÃ­a de Soluciones con IA**
