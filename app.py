@@ -8,9 +8,13 @@ def main():
     while True:
         pregunta = input("Consulta: ")
 
-        if pregunta.lower() == "salir":
+        if pregunta.strip().lower() == "salir":
             print("Programa finalizado.")
             break
+
+        if not pregunta.strip():
+            print("Debes ingresar una consulta.")
+            continue
 
         try:
             respuesta = responder_consulta(pregunta)

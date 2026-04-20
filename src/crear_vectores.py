@@ -7,12 +7,20 @@ import os
 from dotenv import load_dotenv
 
 
-load_dotenv()
+ROOT_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT_DIR / "data"
+FAISS_DIR = ROOT_DIR / "faiss_index"
+ENV_PATH = ROOT_DIR / ".env"
+
+load_dotenv(dotenv_path=ENV_PATH)
 
 
-def cargar_documentos_txt(ruta_base: str):
+def cargar_documentos_txt(ruta_base):
     documentos = []
     ruta = Path(ruta_base)
+
+    if not ruta.exists():
+        raise FileNotFoundError(f"No se encontró la carpeta de datos: {ruta}")
 
     for archivo in ruta.rglob("*.txt"):
         loader = TextLoader(str(archivo), encoding="utf-8")
@@ -27,7 +35,7 @@ def crear_base_vectorial():
     if not github_token:
         raise ValueError("No se encontró GITHUB_TOKEN en el archivo .env")
 
-    documentos = cargar_documentos_txt("data")
+    documentos = cargar_documentos_txt(DATA_DIR)
 
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
@@ -43,7 +51,7 @@ def crear_base_vectorial():
     )
 
     vectorstore = FAISS.from_documents(chunks, embeddings)
-    vectorstore.save_local("faiss_index")
+    vectorstore.save_local(str(FAISS_DIR))
 
     print("Base vectorial creada correctamente.")
     print(f"Cantidad de documentos cargados: {len(documentos)}")
